@@ -10,6 +10,7 @@
             <img src="{{blog.picture}}">
             <p>{{blog.content}}</p>
             <p>{{blog.uploaded_on}}
+            <a href="{% url "blog-detail" blog.id%}">Read more</a>
         </div>
         {% endfor %}
     </body>
