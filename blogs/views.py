@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
+from .forms import *
 
 def upload_blogs(request):
     if request.method == 'POST':
@@ -19,4 +20,17 @@ def list_blogs(request):
 
 def detail_blogs(request, blog_id):
     blog_post = get_object_or_404(Blogs, id=blog_id)
-    return render(request, "blog-details.html", {"blog_post": blog_post})
+
+    comment_list = Comments.objects.filter(blog_post=blog_post).order_by('-commented_on')
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.blog_post = blog_post
+            comment.save()
+            return redirect('blog-detail', blog_id)
+    else:
+        comment_form = CommentForm()
+        
+    return render(request, "blog-details.html", {"blog_post": blog_post, 'comment_form':comment_form, 'comment_list':comment_list})

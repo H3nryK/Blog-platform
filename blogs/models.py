@@ -11,6 +11,7 @@ class Blogs(models.Model):
         return self.title
     
 class Comments(models.Model):
+    blog_post = models.ForeignKey(Blogs, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     email = models.EmailField()
     content = models.TextField()
