@@ -19,8 +19,10 @@ A Django blogging platform for stories &amp; sharing stories.
 - Blogs categories.
 - Blog author.
 - Success &amp; error Messages.
-- Designing User Interface.
+- Blog likes and sharing (whatsapp, facebook, instagram, twitter)
 - 3rd-party integration.
+- Designing User Interface.
+- Seo and usability test.
 
 ## Contribution
 
