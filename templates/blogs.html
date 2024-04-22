@@ -4,6 +4,8 @@
         <title>Upload blogs</title>
     </head>
     <body>
+        <a href='{% url "login" %}'>Login</a>
+        <a href='{% url "register" %}'>Register</a>
         {% for blog in blogs %}
         <div>
             <h1>{{ blog.title }}</h1>
