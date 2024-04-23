@@ -1,11 +1,20 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User  
+  
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
 
 class Blogs(models.Model):
     title = models.CharField(max_length=255)
     picture = models.ImageField(upload_to='blogs/')
     uploaded_on = models.DateTimeField(default=timezone.now)
     content = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

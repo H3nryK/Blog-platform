@@ -4,11 +4,23 @@
         <title>blogs-details</title>
     </head>
     <body>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href='{% url "delete" blog.id %}'>Delete</a>
+        <a href='{% url "edit" blog.id %}'>Edit</a>
+        {% endif %}
         <div>
             <h1>{{ blog_post.title }}</h1>
             <img src="{{blog_post.picture}}">
             <p>{{blog_post.content}}</p>
-            <p>{{blog_post.uploaded_on}}
+            <p>{{blog_post.uploaded_on}}</p>
+            <p>{{blog_post.author}}</p>
         </div>
         <h1>Comment form</p>
         <div>

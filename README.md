@@ -12,13 +12,13 @@ A Django blogging platform for stories &amp; sharing stories.
 - Users can Create blogs.
 - Users can comment on specific blogs.
 - User Authentication.
-
-## Future Functions
-
 - User deleting &amp; editing blogs.
 - Blogs categories.
 - Blog author.
 - Success &amp; error Messages.
+
+## Future Functions
+
 - Blog likes and sharing (whatsapp, facebook, instagram, twitter)
 - 3rd-party integration.
 - Designing User Interface.

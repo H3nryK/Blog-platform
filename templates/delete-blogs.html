@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register</title>
-</title>
+        <title>Delete blogs</title>
     </head>
     <body>
         {% if messages %}
@@ -12,11 +11,15 @@
                 {% endfor %}
             </ul>
         {% endif %}
-        <form action="{% url "register" %}" method="post">
+        {% if user.is_authenticated %}
+        <form action="{% url "delete" %}" method="post">
             {% csrf_token %}
-            {{ form }}
-            <button type='submit'>Register</button>
-            <a href='{% url "login" %}'>Login</a>
+            <p>Are you sure you want to delete the blog?</a>
+            <button type="submit">Yes</button>
+            <a href="{% url "blogs" %}">Cancel</a>
         </form>
+        {% else %}
+        <p>Sorry, wrong page</p>
+        {% endif %}
     </body>
 </html>
