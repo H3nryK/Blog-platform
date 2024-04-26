@@ -1,11 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
         <title>Upload blogs</title>
     </head>
     <body>
+        {% if user.is_authenticated %}
+        <a href='{% url "uploads" %}'>Upload Blogs</a>
+        <a href='{% url "dashboard" %}'>Dashboard</a>
+        {% else %}
         <a href='{% url "login" %}'>Login</a>
         <a href='{% url "register" %}'>Register</a>
+        {% endif %}
         {% for blog in blogs %}
         <div>
             <h1>{{ blog.title }}</h1>

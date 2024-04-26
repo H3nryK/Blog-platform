@@ -18,9 +18,8 @@
             <input type="file" name="image" placeholder="image" required>
             <input type="text" name="content" placeholder="content" required>
             <select name='category'>
-                {% for category in blogs.category %}
-                    <option value="{{category.id}}" {% if blogs.category_id == category.id %}selected{% endif %}>{{category.name}}</option>
-                {% endfor %}
+                <option value="entertainment">Entertainment</option>
+                <option value="education">Education</option>
             </select>
             <button type="submit">upload</button>
         </form>

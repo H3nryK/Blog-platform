@@ -7,6 +7,7 @@ from django.contrib import messages
 
 @login_required
 def upload_blogs(request):
+    blog_post = Blogs.objects.all()
     
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -19,7 +20,7 @@ def upload_blogs(request):
         messages.success(request, "Blog uploaded successfully")
         return redirect('blogs')
     
-    return render(request, 'uploads.html', {"blogs": blogs})
+    return render(request, 'uploads.html')
 
 @login_required
 def delete_blogs(request, blog_id):
